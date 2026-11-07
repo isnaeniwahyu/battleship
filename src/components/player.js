@@ -5,7 +5,7 @@ export default class CreatePlayer {
     this.name = name;
   }
 
-  // get player board
+  // create player board
   createBoard(gameboard) {
     return (this.getPlayerBoards = gameboard);
   }
@@ -15,3 +15,24 @@ export default class CreatePlayer {
     return this.playerBoards;
   }
 }
+
+// bots
+class Bots {
+  botBoards = {};
+  // constructor
+  constructor() {
+    this.name = "BOTS";
+  }
+
+  // create bots board
+  createBoards(gameboard) {
+    return (this.botBoards = gameboard);
+  }
+
+  // print bots board
+  getBotBoards() {
+    return this.botBoards;
+  }
+}
+
+export { Bots };
