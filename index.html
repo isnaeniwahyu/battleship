@@ -5,34 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Battleships</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script type="module" src="/src/main.js" defer></script>
   </head>
   <body>
     <header>
       <div
         id="title"
-        class="grid p-0 m-0 justify-items-center border-2 border-sky-500"
+        class="grid grid-cols-1 mb-4 mt-8 p-0 m-0 justify-items-center border-2 border-sky-500"
       >
-        <h1>BATTLESHIPS</h1>
+        <h1 class="mb-1 font-bold font-semibold">BATTLESHIPS</h1>
+        <h2 class="mb-2">TUTORIAL</h2>
+        <p>
+          1.) Select Your ships in the left
+          <br />
+          2.) Place your ships in your Boards. <br />
+          3.) Click any cell in enemy boards to find and destroy all enemy
+          ships. <br />
+          4.) After you click any cell, the computer will try click on your cell
+          to fire your ships.
+        </p>
       </div>
     </header>
     <main>
       <div
         id="container"
-        class="grid grid-cols-4 p-0 m-0 justify-items-center border-2 border-red-600"
+        class="grid gap-4 m-8 grid-rows-2 grid-cols-[1fr_2fr_1fr]"
       >
-        <div id="playerOneShips">Player One Ship</div>
-        <div id="playerBoards">Player Boards</div>
-        <div id="botBoards">Bot Boards</div>
-        <div id="botShips">Bot Ship</div>
+        <div class="row-span-full border-2">
+          <h2 class="font-semibold mb-4">Your Ships</h2>
+
+          <p>Submarine</p>
+          <p>Destroyer</p>
+          <p>Battleship</p>
+          <p>PetrolBoat</p>
+        </div>
+        <div class="grid gap-4 grid-cols-1 row-span-full">
+          <div id="player-grid"></div>
+          <div id="enemy-grid"></div>
+        </div>
+        <div class="grid border-2 row-span-full justify-items-center">
+          <p>SCORES</p>
+        </div>
       </div>
     </main>
-    <footer>
-      <div
-        id="score"
-        class="grid p-0 m-0 justify-items-center border-2 border-yellow-600"
-      >
-        SCORES
-      </div>
-    </footer>
   </body>
 </html>
