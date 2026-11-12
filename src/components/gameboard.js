@@ -1,7 +1,7 @@
 export default class GameBoard {
   tracks = {};
   // constructor with dyanmic size
-  constructor(rows = 7, columns = 7) {
+  constructor(rows = 9, columns = 9) {
     this.rows = rows;
     this.columns = columns;
     // 7x7 board (default)
