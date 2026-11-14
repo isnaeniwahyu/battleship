@@ -1,5 +1,4 @@
 // create a board and celll
-
 const createPlayerCell = (rows, cols) => {
   const playerGrid = document.getElementById("player-grid");
   // clear any children inside of it

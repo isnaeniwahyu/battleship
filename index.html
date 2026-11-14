@@ -6,12 +6,18 @@
     <title>Battleships</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script type="module" src="/src/main.js" defer></script>
+
+    <style>
+      li {
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
     <header>
       <div
         id="title"
-        class="grid grid-cols-1 mb-4 mt-8 p-0 m-0 justify-items-center border-2 border-sky-500"
+        class="grid grid-cols-1 mb-4 mt-8 p-0 m-0 justify-items-center"
       >
         <h1 class="mb-1 font-bold font-semibold">BATTLESHIPS</h1>
         <h2 class="mb-2">TUTORIAL</h2>
@@ -33,11 +39,13 @@
       >
         <div class="row-span-full border-2">
           <h2 class="font-semibold mb-4">Your Ships</h2>
-
-          <p>Submarine</p>
-          <p>Destroyer</p>
-          <p>Battleship</p>
-          <p>PetrolBoat</p>
+          <!-- Players Shipsc -->
+          <ul id="ship-list">
+            <li id="Submarine">Submarine</li>
+            <li id="Destroyer">Destroyer</li>
+            <li id="Battleship">Battleship</li>
+            <li id="PetrolBoat">Petrol-Boat</li>
+          </ul>
         </div>
         <div class="grid gap-4 grid-cols-1 row-span-full">
           <div id="player-grid"></div>

@@ -4,6 +4,7 @@ import { createPlayerCell, createEnemyCell } from "./pages/boards";
 
 import Ships from "./components/ship";
 import CreatePlayer from "./components/player";
+// import { placeShips } from "./event-handler/place-ship";
 
 // komponen untuk papan
 const boards = new GameBoard();
@@ -11,3 +12,4 @@ const boards = new GameBoard();
 // render pages
 createPlayerCell(boards.rows, boards.columns);
 createEnemyCell(boards.rows, boards.columns);
+// placeShips();
