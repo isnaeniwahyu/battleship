@@ -1,20 +1,19 @@
-import GameBoard from "../components/gameboard";
-import Ships from "../components/ship";
+// placeships function
 
-// placeships function to drag
-const shipList = document.getElementById("ship-list");
-const gameboard = new GameBoard();
+const placeShips = (e) => {
+  // DOM
+  const shipList = document.getElementById("ship-list");
+  
+  // event listener
+  shipList.addEventListener("click", (e) => {
+    const id = e.target.id;
 
-shipList.addEventListener("click", (e) => {
-  // get the ship id
-  const id = e.target.id;
-  let isActive = false;
+    // C . flow
+    if (id === "Submarine") console.log("Submarine Picked...");
+    if (id === "Destroyer") console.log("Destroyer Picked...");
+    if (id === "Battleship") console.log("Battleship Picked...");
+    if (id === "PetrolBoat") console.log("Petrol Boat Picked...");
+  })
+}
 
-  if (id === "Submarine") {
-    isActive = true;
-    while (isActive) {
-      gameboard.placeShips();
-    }
-    console.log("Submarine selected...");
-  }
-});
+export {placeShips};
