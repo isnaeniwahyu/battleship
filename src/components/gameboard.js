@@ -29,6 +29,11 @@ export default class GameBoard {
     // put the ships into track var
     this.tracks[ships.name] = ships;
 
+    // overlap checks
+    if (this.boards[rows][cols] !== null) {
+      return false;
+    }
+
     // horizontal
     if (direction === "horizontal" && ships.size === 4) {
       this.boards[rows][cols] = ships.name;
@@ -67,7 +72,7 @@ export default class GameBoard {
     const cell = this.boards[x][y];
 
     // do nothing if cell already hits
-    if (cell === "x" || cell === ".") return;
+    if (cell === "X" || cell === ".") return;
 
     if (cell !== null) {
       // take ship's name in cell
