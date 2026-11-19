@@ -10,12 +10,12 @@ const createPlayerCell = (rows, cols) => {
     for (let j = 0; j < cols; j++) {
       // create the cell
       const cell = document.createElement("div");
-      const mark = document.createElement("p");
-      mark.textContent = "X";
-      // style with tailwind
+      const mark = document.createElement("span");
+      mark.setAttribute("aria-hidden", "true");
       cell.id = `grid-cell-${i}-${j}`;
-      cell.classList.add("border");
-      cell.classList.add("place-items-center");
+      cell.className =
+        "board-cell flex aspect-square min-w-0 cursor-crosshair items-center justify-center rounded-md border text-xs font-black sm:rounded-lg sm:text-sm";
+      cell.setAttribute("aria-label", `Your waters, row ${i + 1}, column ${j + 1}`);
 
       // set dataset
       cell.dataset.x = i;
@@ -40,13 +40,12 @@ const createEnemyCell = (rows, cols) => {
     for (let j = 0; j < cols; j++) {
       // create cell & mark and style
       const cell = document.createElement("div");
-      const mark = document.createElement("p");
-      mark.textContent = "X";
+      const mark = document.createElement("span");
+      mark.setAttribute("aria-hidden", "true");
 
-      // style
-      cell.classList.add(`grid-cell-${i}-${j}`);
-      cell.classList.add("border");
-      cell.classList.add("place-items-center");
+      cell.className =
+        "board-cell flex aspect-square min-w-0 cursor-crosshair items-center justify-center rounded-md border text-xs font-black sm:rounded-lg sm:text-sm";
+      cell.setAttribute("aria-label", `Enemy waters, row ${i + 1}, column ${j + 1}`);
 
       // set dataset
       cell.dataset.x = i;

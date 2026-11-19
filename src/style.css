@@ -1,0 +1,42 @@
+.board-cell {
+  background-color: rgb(30 41 59 / 80%);
+  border-color: rgb(51 65 85 / 80%);
+}
+
+#player-grid .board-cell:hover:not(.is-ship):not(.is-hit):not(.is-miss) {
+  border-color: rgb(34 211 238 / 70%);
+}
+
+#enemy-grid .board-cell:hover:not(.is-hit):not(.is-miss) {
+  border-color: rgb(251 113 133 / 70%);
+}
+
+.board-cell.is-ship {
+  background-color: rgb(6 182 212 / 80%);
+  border-color: rgb(103 232 249);
+}
+
+.board-cell.is-hit {
+  background-color: rgb(244 63 94);
+  border-color: rgb(253 164 175);
+}
+
+.board-cell.is-miss {
+  background-color: rgb(51 65 85);
+  border-color: rgb(100 116 139);
+}
+
+.board-cell.is-preview-valid {
+  background-color: rgb(34 211 238 / 50%);
+  border-color: rgb(103 232 249);
+}
+
+.board-cell.is-preview-invalid {
+  background-color: rgb(244 63 94 / 70%);
+  border-color: rgb(253 164 175);
+}
+
+#ship-list [data-ship].is-selected {
+  border-color: rgb(34 211 238);
+  background-color: rgb(8 51 68 / 60%);
+}

@@ -7,8 +7,9 @@ export default class GameBoard {
     // create 2D array
     this.boards = [];
     for (let i = 0; i < rows; i++) {
-      this.boards.push(Array(columns).fill(null))
+      this.boards.push(Array(columns).fill(null));
     }
+    this.attacks = Array.from({ length: rows }, () => Array(columns).fill(false));
   };  
 
   // print board
@@ -50,14 +51,21 @@ export default class GameBoard {
 
   // receive attacks
   receiveAttacks(x, y) {
-    // check for overlaps/safe guard
-    if (this.boards[x][y] === "X") return;
-
-    // check if misses an attack 
-    if(this.boards[x][y] === null) {
-      this.boards[x][y] = ".";
-    } else {
-      this.boards[x][y] = "X"
+    if (
+      !Number.isInteger(x) ||
+      !Number.isInteger(y) ||
+      x < 0 ||
+      x >= this.rows ||
+      y < 0 ||
+      y >= this.columns
+    ) {
+      return null;
     }
+
+    if (this.attacks[x][y]) return { alreadyAttacked: true, hit: false };
+
+    this.attacks[x][y] = true;
+    const ship = this.boards[x][y];
+    return { alreadyAttacked: false, hit: ship !== null, ship };
   };
 };
