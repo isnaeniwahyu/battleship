@@ -12,8 +12,8 @@ class Ships {
       this.hp = 3;
       this.sunk = false;
     } else if (this.name === "Battleship") {
-      this.size = 3;
-      this.hp = 3;
+      this.size = 4;
+      this.hp = 4;
       this.sunk = false;
     } else if (this.name === "PetrolBoat") {
       this.size = 1;

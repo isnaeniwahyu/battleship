@@ -30,7 +30,12 @@ export default class GameBoard {
     this.tracks[ships.name] = ships;
 
     // horizontal
-    if (direction === "horizontal" && ships.size === 3) {
+    if (direction === "horizontal" && ships.size === 4) {
+      this.boards[rows][cols] = ships.name;
+      this.boards[rows][cols + 1] = ships.name;
+      this.boards[rows][cols + 2] = ships.name;
+      this.boards[rows][cols - 1] = ships.name;
+    } else if (direction === "horizontal" && ships.size === 3) {
       this.boards[rows][cols] = ships.name;
       this.boards[rows][cols + 1] = ships.name;
       this.boards[rows][cols - 1] = ships.name;
@@ -38,16 +43,22 @@ export default class GameBoard {
       this.boards[rows][cols] = ships.name;
       this.boards[rows][cols + 1] = ships.name;
     }
+    
 
     // vertical
-    if (direction === "vertical" && ships.size === 3) {
+    if (direction === 'vertical' && ships.size === 4) {
+      this.boards[rows][cols] = ships.name;
+      this.boards[rows + 1][cols] = ships.name;
+      this.boards[rows + 2][cols] = ships.name;
+      this.boards[rows - 1][cols] = ships.name;
+    } else if (direction === "vertical" && ships.size === 3) {
       this.boards[rows][cols] = ships.name;
       this.boards[rows + 1][cols] = ships.name;
       this.boards[rows - 1][cols] = ships.name;
     } else if (direction === "vertical" && ships.size === 2) {
       this.boards[rows][cols] = ships.name;
       this.boards[rows + 1][cols] = ships.name;
-    }
+    }    
   }
 
   // receiveAttack
