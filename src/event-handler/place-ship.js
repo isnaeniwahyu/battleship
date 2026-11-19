@@ -25,7 +25,7 @@ const placeShips = (e) => {
     if (id === "Destroyer") {
       while(isPicked) {
         const ships = new Ships('Destroyer');
-        console.log(`Selecting ${ships.name}`);
+        console.log(`Selecting ${ships.name}...`);
         isPicked = false;
         return;
       }
@@ -35,7 +35,7 @@ const placeShips = (e) => {
     if (id === "Battleship") {
       while(isPicked) {
         const ships = new Ships('Battleship');
-        console.log(`Selecting ${ships.name}`);
+        console.log(`Selecting ${ships.name}...`);
         isPicked = false;
         return;
       }
@@ -45,7 +45,7 @@ const placeShips = (e) => {
     if (id === "PetrolBoat") {
       while(isPicked) {
         const ships = new Ships('PetrolBoat');
-        console.log(`Selecting ${ships.name}`);
+        console.log(`Selecting ${ships.name}...`);
         isPicked = false;
         return;
       }
