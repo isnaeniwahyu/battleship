@@ -1,7 +1,7 @@
 import GameBoard from "../components/gameboard";
 import Ships from "../components/ship";
 
-const shipsName = ["Submarine", "Destroyer", "Battleship", "PetrolBoat"];
+const shipsName = ["Submarine", "Destroyer", "Battleship", "Petrol-Boat"];
 
 // event listeners func
 function initShipSelector() {
@@ -13,7 +13,7 @@ function initShipSelector() {
         
         // check if id containts ships name
         if (shipsName.includes(id)){
-            console.log(`Selecting ${id}...`);
+            console.log(`Selecting ${id}...`);            
         }
     })
 };
