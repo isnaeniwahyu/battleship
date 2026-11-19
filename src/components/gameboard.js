@@ -17,23 +17,35 @@ export default class GameBoard {
   };
 
   // place a ships
-  placeShips (ships, r, c, direction = "horizontal") {
-    // check for overlaps first
-    if (this.boards[r][c] !== null) return;
-    let col =  c;
-    let row = r;      
-    // horizontal handle
-    if (direction === "horizontal") {        
-      for (let i = 0; i < ships.size; i++) {      
-        this.boards[row][col] = ships.name;
-        col++;        
-      }
-    } else if (direction === "vertical") {
-        for (let i = 0; i < ships.size; i++) {
-          this.boards[row][col] = ships.name;
-          row++;
-        }
+  placeShips(ships, r, c, direction = "horizontal") {
+    if (
+      !Number.isInteger(r) ||
+      !Number.isInteger(c) ||
+      !Number.isInteger(ships.size) ||
+      ships.size <= 0 ||
+      !["horizontal", "vertical"].includes(direction)
+    ) {
+      return false;
     }
+
+    const positions = Array.from({ length: ships.size }, (_, offset) => ({
+      row: r + (direction === "vertical" ? offset : 0),
+      column: c + (direction === "horizontal" ? offset : 0),
+    }));
+
+    const isPositionAvailable = ({ row, column }) =>
+      row >= 0 &&
+      row < this.rows &&
+      column >= 0 &&
+      column < this.columns &&
+      this.boards[row][column] === null;
+
+    if (!positions.every(isPositionAvailable)) return false;
+
+    positions.forEach(({ row, column }) => {
+      this.boards[row][column] = ships.name;
+    });
+    return true;
   };
 
   // receive attacks

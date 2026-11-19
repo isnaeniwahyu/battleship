@@ -1,16 +1,14 @@
 import Ships from "../components/ship";
-
+// create a list of ships.
+const ships = [
+    new Ships ("Submarine"),
+    new Ships ("Destroyer"),
+    new Ships ("Battleship"),
+    new Ships ("Petrol-Boat"),
+];
 
 // Create a function of listing ships
 const listOfShips = () => {
-    // create a list of ships.
-    const ships = [
-        new Ships ("Submarine"),
-        new Ships ("Destroyer"),
-        new Ships ("Battleship"),
-        new Ships ("Petrol-Boat"),
-    ];
-
     // DOM
     const shipList = document.getElementById("ship-list");
     
@@ -26,4 +24,4 @@ const listOfShips = () => {
     })
 };
 
-export {listOfShips};
+export {listOfShips, ships};

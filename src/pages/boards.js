@@ -13,7 +13,7 @@ const createPlayerCell = (rows, cols) => {
       const mark = document.createElement("p");
       mark.textContent = "X";
       // style with tailwind
-      cell.classList.add(`grid-cell-${i}-${j}`);
+      cell.id = `grid-cell-${i}-${j}`;
       cell.classList.add("border");
       cell.classList.add("place-items-center");
 

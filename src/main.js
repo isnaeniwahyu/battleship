@@ -19,4 +19,4 @@ listOfShips();
 createPlayerCell(playerBoards.rows, playerBoards.columns);
 createEnemyCell(enemyBoards.rows, enemyBoards.columns);
 // handler
-initShipSelector();
+initShipSelector(playerBoards);
