@@ -1,88 +1,51 @@
 export default class GameBoard {
-  tracks = {};
-  // constructor with dyanmic size
+  // constructor
   constructor(rows = 9, columns = 9) {
     this.rows = rows;
-    this.columns = columns;
-    // 7x7 board (default)
+    this.columns = columns;  
+
+    // create 2D array
     this.boards = [];
-
-    // set board depends on input
     for (let i = 0; i < rows; i++) {
-      this.boards[i] = [];
-      for (let j = 0; j < columns; j++) {
-        this.boards[i][j] = null;
-      }
+      this.boards.push(Array(columns).fill(null))
     }
-  }
+  };  
 
-  // print the board
+  // print board
   getBoards() {
     return this.boards;
-  }
+  };
 
-  // place ships
-  placeShips(ships, rows, cols, direction = "horizontal") {
-    // check the size first and direction
-    // only 1
-    this.boards[rows][cols] = ships.name;
-    // put the ships into track var
-    this.tracks[ships.name] = ships;
-
-    // overlap checks
-    if (this.boards[rows][cols] !== null) {
-      return false;
+  // place a ships
+  placeShips (ships, r, c, direction = "horizontal") {
+    // check for overlaps first
+    if (this.boards[r][c] !== null) return;
+    let col =  c;
+    let row = r;      
+    // horizontal handle
+    if (direction === "horizontal") {        
+      for (let i = 0; i < ships.size; i++) {      
+        this.boards[row][col] = ships.name;
+        col++;        
+      }
+    } else if (direction === "vertical") {
+        for (let i = 0; i < ships.size; i++) {
+          this.boards[row][col] = ships.name;
+          row++;
+        }
     }
+  };
 
-    // horizontal
-    if (direction === "horizontal" && ships.size === 4) {
-      this.boards[rows][cols] = ships.name;
-      this.boards[rows][cols + 1] = ships.name;
-      this.boards[rows][cols + 2] = ships.name;
-      this.boards[rows][cols - 1] = ships.name;
-    } else if (direction === "horizontal" && ships.size === 3) {
-      this.boards[rows][cols] = ships.name;
-      this.boards[rows][cols + 1] = ships.name;
-      this.boards[rows][cols - 1] = ships.name;
-    } else if (direction === "horizontal" && ships.size === 2) {
-      this.boards[rows][cols] = ships.name;
-      this.boards[rows][cols + 1] = ships.name;
-    }
-    
+  // receive attacks
+  receiveAttacks(x, y) {
+    // check for overlaps/safe guard
+    if (this.boards[x][y] === "X") return;
 
-    // vertical
-    if (direction === 'vertical' && ships.size === 4) {
-      this.boards[rows][cols] = ships.name;
-      this.boards[rows + 1][cols] = ships.name;
-      this.boards[rows + 2][cols] = ships.name;
-      this.boards[rows - 1][cols] = ships.name;
-    } else if (direction === "vertical" && ships.size === 3) {
-      this.boards[rows][cols] = ships.name;
-      this.boards[rows + 1][cols] = ships.name;
-      this.boards[rows - 1][cols] = ships.name;
-    } else if (direction === "vertical" && ships.size === 2) {
-      this.boards[rows][cols] = ships.name;
-      this.boards[rows + 1][cols] = ships.name;
-    }    
-  }
-
-  // receiveAttack
-  receiveAttack(x, y) {
-    // create temporary cell
-    const cell = this.boards[x][y];
-
-    // do nothing if cell already hits
-    if (cell === "X" || cell === ".") return;
-
-    if (cell !== null) {
-      // take ship's name in cell
-      const shipName = cell;
-
-      // hit the ships
-      this.tracks[shipName].hit();
-      this.boards[x][y] = "X";
-    } else {
+    // check if misses an attack 
+    if(this.boards[x][y] === null) {
       this.boards[x][y] = ".";
+    } else {
+      this.boards[x][y] = "X"
     }
-  }
-}
+  };
+};
