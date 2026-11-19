@@ -8,7 +8,7 @@ const listOfShips = () => {
         new Ships ("Submarine"),
         new Ships ("Destroyer"),
         new Ships ("Battleship"),
-        new Ships ("PetrolBoat"),
+        new Ships ("Petrol-Boat"),
     ];
 
     // DOM
@@ -19,6 +19,7 @@ const listOfShips = () => {
         const li = document.createElement("li");
         li.id = ship.name;
         li.textContent = ship.name;
+        li.classList.add("mb-2");
 
         // append shiplist child to li
         shipList.appendChild(li);

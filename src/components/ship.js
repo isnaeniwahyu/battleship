@@ -15,7 +15,7 @@ class Ships {
       this.size = 4;
       this.hp = 4;
       this.sunk = false;
-    } else if (this.name === "PetrolBoat") {
+    } else if (this.name === "Petrol-Boat") {
       this.size = 1;
       this.hp = 1;
       this.sunk = false;
